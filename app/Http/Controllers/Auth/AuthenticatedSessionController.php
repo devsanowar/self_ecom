@@ -27,6 +27,11 @@ class AuthenticatedSessionController extends Controller
         $request->authenticate();
 
         $request->session()->regenerate();
+        if(Auth::user()->system_admin == 'Admin'){
+            $toast = Toastr();
+            $toast->success('Successfully logged in :)');
+            return redirect()->route('admin.dashboard');
+        }
 
         return redirect()->intended(route('dashboard', absolute: false));
     }

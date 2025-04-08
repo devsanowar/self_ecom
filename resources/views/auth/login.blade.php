@@ -40,9 +40,18 @@
                         <h5 class="title">Sign in to your Account</h5>
                         <div class="form-group form-float">
                             <div class="form-line">
-                                <input type="text" class="form-control" name="email" required autofocus autocomplete="username">
+                                <input type="text" class="form-control" name="email" required autofocus
+                                    autocomplete="username">
                                 <label class="form-label">Email</label>
-                                <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                                @if ($errors->has('email'))
+                                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                        {{ $errors->first('email') }}
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                @endif
+
                             </div>
                         </div>
                         <div class="form-group form-float">
@@ -50,7 +59,16 @@
                                 <input id="password" type="password" name="password" class="form-control" required
                                     autocomplete="current-password">
                                 <label for="password" class="form-label">Password</label>
-                                <x-input-error :messages="$errors->get('password')" class="mt-2" />
+
+                                @if ($errors->has('password'))
+                                    <div class="alert alert-danger alert-dismissible fade show mt-2" role="alert">
+                                        {{ $errors->first('password') }}
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                @endif
+
                             </div>
                         </div>
 

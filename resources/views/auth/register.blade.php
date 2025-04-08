@@ -1,4 +1,4 @@
-<!doctype html>
+{{-- <!doctype html>
 <html class="no-js " lang="en">
 <head>
 <meta charset="utf-8">
@@ -92,4 +92,7 @@
 <script src="{{ asset('backend') }}/assets/bundles/vendorscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js -->
 <script src="{{ asset('backend') }}/assets/bundles/mainscripts.bundle.js"></script><!-- Custom Js -->
 </body>
-</html>
+</html> --}}
+
+
+<h2>Page Not Found! :)</h2>

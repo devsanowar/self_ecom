@@ -1,9 +1,12 @@
 <?php
 
+use App\Http\Controllers\Admin\AboutController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\BannerController;
+use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\NotificationController;
 use App\Http\Controllers\Admin\WebsiteSettingController;
 
@@ -25,8 +28,17 @@ Route::prefix('admin')->middleware('auth')->group(function () {
 
     // Website Setting Route Here
     Route::get('website/setting/', [WebsiteSettingController::class, 'websiteSetting'])->name('website_setting');
+    Route::post('website/setting/update/', [WebsiteSettingController::class, 'websiteSettingUpdate'])->name('website_setting.update');
 
-    Route::post('website/setting/update/{id}', [WebsiteSettingController::class, 'websiteSettingUpdate'])->name('website_setting.update');
+    // Home page banner route here
+    Route::get('banner', [BannerController::class, 'index'])->name('banner.index');
+    Route::post('banner/update/', [BannerController::class, 'update'])->name('banner.update');
 
+    // Brand route here
+    Route::resource('brand', BrandController::class);
+
+    // About Controller here
+    Route::get('about', [AboutController::class, 'index'])->name('about.index');
+    Route::post('about/update/', [AboutController::class, 'update'])->name('about.update');
 });
 

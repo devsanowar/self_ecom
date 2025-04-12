@@ -59,14 +59,13 @@ class UserController extends Controller
             if ($request->hasFile('image')) {
                 $image = Image::read($request->file('image'));
 
-                $imagePath = public_path($user->image); // Use public_path() to get the full file path
+                $imagePath = public_path($user->image);
 
-                // Check if the old image exists and delete it
                 if ($user->image && file_exists($imagePath)) {
-                    unlink($imagePath); // Delete the old image file
+                    unlink($imagePath);
                 }
 
-                // Generate a new image name
+
                 $imageName = time() . '-' . $request->file('image')->getClientOriginalName();
                 $destinationPath = public_path('uploads/profile_image/');
                 // $image->resize(100, 100);
@@ -85,7 +84,8 @@ class UserController extends Controller
             return redirect()->route('user.profile');
         }
 
-        return redirect()->route('user.profile')->with('error', 'User not found.');
+        Toastr::error('User Not Found !');
+        return redirect()->route('user.profile');
     }
 
     public function passwordUpdate(Request $request, $id)

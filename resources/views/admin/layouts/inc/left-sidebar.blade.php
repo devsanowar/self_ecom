@@ -22,17 +22,27 @@
         <ul class="list">
             <li class="active"><a href="{{ route('admin.dashboard') }}"><i class="zmdi zmdi-home"></i><span>Dashboard</span></a>
             </li>
-            <li><a href="mail-inbox.html"><i class="zmdi zmdi-email"></i><span>Inbox</span> </a></li>
-            <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-shopping-cart"></i><span>Ecommerce</span> </a>
+
+            <li><a href="{{ route('about.index') }}"><i class="zmdi zmdi-assignment"></i><span>About</span> </a></li>
+
+            <li><a href="{{ route('banner.index') }}"><i class="zmdi zmdi-assignment"></i><span>Banner</span> </a></li>
+
+            <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-assignment"></i><span>Brand</span> </a>
                 <ul class="ml-menu">
-                    <li><a href="ec-product.html">Add Product</a></li>
-                    <li><a href="ec-product-List.html">Product List</a></li>
-                    <li><a href="ec-product-detail.html">Category</a></li>
-                    <li><a href="ec-product-detail.html">Brand</a></li>
-                    <li><a href="ec-product-detail.html">Unit</a></li>
+                    <li><a href="{{ route('brand.create') }}">Add Brand</a></li>
+                    <li><a href="{{ route('brand.index') }}">All Brand</a></li>
                 </ul>
             </li>
 
+            <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-assignment"></i><span>Project</span> </a>
+                <ul class="ml-menu">
+                    <li><a href="ec-product-detail.html">Category</a></li>
+                    <li><a href="ec-product.html">Add Product</a></li>
+                    <li><a href="ec-product-List.html">All Product</a></li>
+                </ul>
+            </li>
+
+            <li><a href="mail-inbox.html"><i class="zmdi zmdi-email"></i><span>Inbox</span> </a></li>
 
             <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-copy"></i><span>Pages</span> </a>
                 <ul class="ml-menu">
